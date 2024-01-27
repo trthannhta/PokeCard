@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poke</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .normal {
+            background-color: pink;
+        }
+
+        .water {
+            background-color: #1cb5e0;
+        }
+
+        .electric {
+            background-color: rgb(24, 24, 15);
+        }
+
+        .fire {
+            background-color: red;
+        }
+
+        .psychic {
+            background-color: rgb(172, 108, 118);
+        }
+
+        .dark {
+            background-color: rgb(31, 24, 25);
+        }
+
+        .grass {
+            background-color: rgb(54, 179, 95);
+        }
+
+        .ice {
+            background-color: rgb(46, 36, 137);
+        }
+
+        .fairy {
+            background-color: pink;
+        }
+
+        .container {
+            background-size: contain;
+            background-repeat: repeat;
+            background-image: url(https://wallpaperset.com/w/full/5/0/c/383733.jpg);
+        }
+
+        .container-junior {
+            flex-direction: row;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            padding: 1em;
+            width: 270px;
+            padding: 12px;
+            border-radius: 8px;
+            transform: rotate(-2deg);
+            transition-duration: 0.5s;
+
+        }
+
+        .card:hover {
+            transform: rotate(0);
+        }
+
+
+        .card-image-container {
+            background-color: rgb(0 0 0 / 70%);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card-image {
+            width: 100px;
+            height: 100px;
+        }
+
+        .card-caption {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.65);
+            padding: 12px;
+        }
+
+        .poke-type {
+            padding: 4px;
+            font-size: 15px;
+            position: absolute;
+            top: -10px;
+            right: 12px;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+            letter-spacing: 0.1em;
+            font-weight: 100;
+        }
+
+        .poke-name {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .card-stats-container {
+            display: flex;
+            flex-direction: column;
+            font-weight: 100;
+            margin-top: 20px;
+            gap: 4px;
+
+        }
+
+        .card-stats {
+            display: flex;
+            font-size: 15px;
+            padding: 2px;
+            gap: 24px;
+        }
+
+        .card-stats-word {
+            text-align: right;
+            width: 50%;
+        }
+
+        .card-stats-number {
+            width: 50%;
+        }
+
+        .card_abilities {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .label {
+            font-weight: 100;
+            font-size: 20px;
+        }
+
+        .card-normal {
+            background-image: linear-gradient(30deg, #596a7a, violet);
+        }
+
+        .card-water {
+            background-image: linear-gradient(90deg, #596a7a, rgb(55, 42, 137));
+
+        }
+
+        .card-electric {
+            background-image: linear-gradient(30deg, #597896, rgb(145, 139, 39));
+        }
+
+        .card-fire {
+            background-image: linear-gradient(30deg, rgb(145, 139, 39), rgb(145, 48, 39));
+        }
+
+        .card-psychic {
+            background-image: linear-gradient(30deg, rgb(145, 48, 39), rgb(127, 39, 145));
+        }
+
+        .card-dark {
+            background-image: linear-gradient(30deg, rgb(127, 39, 145), rgb(114, 52, 46));
+        }
+
+        .card-grass {
+            background-image: linear-gradient(30deg, #6e2e3d, rgb(35, 106, 53));
+        }
+
+        .card-ice {
+            background-image: linear-gradient(30deg, rgb(35, 106, 53), rgb(16, 20, 145));
+        }
+
+        .card-fairy {
+            background-image: linear-gradient(30deg, rgb(16, 20, 145), rgb(145, 39, 119));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-junior">
+            <div class="card card-normal">
+                <div class="card-image-container">
+                    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/113.png" alt="Chansey"
+                        class="card-image">
+                </div>
+                <div class="card-caption">
+                    <h1 class="poke-name">Chansey</h1>
+                    <h3 class="poke-type normal">Normal</h3>
+                    <div class="card-stats-container">
+                        <div class="card-stats">
+                            <p class="card-stats-word">HP</p>
+                            <p class="card-stats-number">250</p>
+                        </div>
+                        <div class="card-stats">
+                            <p class="card-stats-word">Attack</p>
+                            <p class="card-stats-number">5</p>
+                        </div>
+                        <div class="card-stats">
+                            <p class="card-stats-word">Defense</p>
+                            <p class="card-stats-number">35</p>
+                        </div>
+                        <div class="card-stats">
+                            <p class="card-stats-word">Special Attack</p>
+                            <p class="card-stats-number">35</p>
+                        </div>
+                        <div class="card-stats">
+                            <p class="card-stats-word">Special Defense</p>
+                            <p class="card-stats-number">105</p>
+                        </div>
+                        <div class="card-stats">
+                            <p class="card-stats-word">Speed</p>
+                            <p class="card-stats-number">50</p>
+                        </div>
+                    </div>
+                    <div class="card_abilities">
+                        <div>
+                            <h4 class="label">Ability</h4>
+                            Natural Cure
+                        </div>
+                        <div>
+                            <h4 class="label">Hidden Ability</h4>
+                            Healer
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-water">
+            <div class="card-image-container">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/484.png" alt="Palkia" class="card-image">
+            </div>
+            <div class="card-caption">
+                <h1 class="poke-name">Palkia</h1>
+                <h3 class="poke-type water">Water</h3>
+                <div class="card-stats-container">
+                    <div class="card-stats">
+                        <p class="card-stats-word">HP</p>
+                        <p class="card-stats-number">90</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Attack</p>
+                        <p class="card-stats-number">120</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Defense</p>
+                        <p class="card-stats-number">100</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Attack</p>
+                        <p class="card-stats-number">150</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Defense</p>
+                        <p class="card-stats-number">120</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Speed</p>
+                        <p class="card-stats-number">100</p>
+                    </div>
+                </div>
+                <div class="card_abilities">
+                    <div class="ability">
+                        <h4 class="label">Ability</h4>
+                        Pressure
+                    </div>
+                    <div class="ability">
+                        <h4 class="label">Hidden Ability</h4>
+                        Telepathy
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-electric">
+            <div class="card-image-container">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Palkia" class="card-image">
+            </div>
+            <div class="card-caption">
+                <h1 class="poke-name">Pikachu</h1>
+                <h3 class="poke-type electric">Electric</h3>
+                <div class="card-stats-container">
+                    <div class="card-stats">
+                        <p class="card-stats-word">HP</p>
+                        <p class="card-stats-number">35</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Attack</p>
+                        <p class="card-stats-number">55</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Defense</p>
+                        <p class="card-stats-number">40</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Attack</p>
+                        <p class="card-stats-number">50</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Defense</p>
+                        <p class="card-stats-number">50</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Speed</p>
+                        <p class="card-stats-number">90</p>
+                    </div>
+                </div>
+                <div class="card_abilities">
+                    <div class="ability">
+                        <h4 class="label">Ability</h4>
+                        Static
+                    </div>
+                    <div class="ability">
+                        <h4 class="label">Hidden Ability</h4>
+                        Lightning Rod
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-fire">
+            <div class="card-image-container">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/383.png" alt="Palkia" class="card-image">
+            </div>
+            <div class="card-caption">
+                <h1 class="poke-name">Groudon</h1>
+                <h3 class="poke-type fire">Fire</h3>
+                <div class="card-stats-container">
+                    <div class="card-stats">
+                        <p class="card-stats-word">HP</p>
+                        <p class="card-stats-number">100</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Attack</p>
+                        <p class="card-stats-number">150</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Defense</p>
+                        <p class="card-stats-number">140</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Attack</p>
+                        <p class="card-stats-number">100</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Defense</p>
+                        <p class="card-stats-number">90</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Speed</p>
+                        <p class="card-stats-number">90</p>
+                    </div>
+                </div>
+                <div class="card_abilities">
+                    <div class="ability">
+                        <h4 class="label">Ability</h4>
+                        Drought
+                    </div>
+                    <div class="ability">
+                        <h4 class="label">Hidden Ability</h4>
+                        NONE
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-psychic">
+            <div class="card-image-container">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png" alt="Mewtwo" class="card-image">
+            </div>
+            <div class="card-caption">
+                <h1 class="poke-name">Mewtwo</h1>
+                <h3 class="poke-type psychic">Psychic</h3>
+                <div class="card-stats-container">
+                    <div class="card-stats">
+                        <p class="card-stats-word">HP</p>
+                        <p class="card-stats-number">106</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Attack</p>
+                        <p class="card-stats-number">110</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Defense</p>
+                        <p class="card-stats-number">90</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Attack</p>
+                        <p class="card-stats-number">154</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Defense</p>
+                        <p class="card-stats-number">90</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Speed</p>
+                        <p class="card-stats-number">130</p>
+                    </div>
+                </div>
+                <div class="card_abilities">
+                    <div class="ability">
+                        <h4 class="label">Ability</h4>
+                        <p>Pressure</p>
+                    </div>
+                    <div class="ability">
+                        <h4 class="label">Hidden Ability</h4>
+                        <p>Unnerve</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-dark">
+            <div class="card-image-container">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/197.png" alt="Umberon" class="card-image">
+            </div>
+            <div class="card-caption">
+                <h1 class="poke-name">Umbreon</h1>
+                <h3 class="poke-type dark">Dark</h3>
+                <div class="card-stats-container">
+                    <div class="card-stats">
+                        <p class="card-stats-word">HP</p>
+                        <p class="card-stats-number">95</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Attack</p>
+                        <p class="card-stats-number">65</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Defense</p>
+                        <p class="card-stats-number">110</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Attack</p>
+                        <p class="card-stats-number">60</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Defense</p>
+                        <p class="card-stats-number">130</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Speed</p>
+                        <p class="card-stats-number">65</p>
+                    </div>
+                </div>
+                <div class="card_abilities">
+                    <div class="ability">
+                        <h4 class="label">Ability</h4>
+                        <p>Synchronize</p>
+                    </div>
+                    <div class="ability">
+                        <h4 class="label">Hidden Ability</h4>
+                        <p>Inner Focus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-grass">
+            <div class="card-image-container">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="Bulbasaur" class="card-image">
+            </div>
+            <div class="card-caption">
+                <h1 class="poke-name">Bulbasaur</h1>
+                <h3 class="poke-type grass">Grass</h3>
+                <div class="card-stats-container">
+                    <div class="card-stats">
+                        <p class="card-stats-word">HP</p>
+                        <p class="card-stats-number">45</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Attack</p>
+                        <p class="card-stats-number">49</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Defense</p>
+                        <p class="card-stats-number">49</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Attack</p>
+                        <p class="card-stats-number">65</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Defense</p>
+                        <p class="card-stats-number">65</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Speed</p>
+                        <p class="card-stats-number">45</p>
+                    </div>
+                </div>
+                <div class="card_abilities">
+                    <div class="ability">
+                        <h4 class="label">Ability</h4>
+                        <p>Overgrow</p>
+                    </div>
+                    <div class="ability">
+                        <h4 class="label">Hidden Ability</h4>
+                        <p>Chlorophyll</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-ice">
+            <div class="card-image-container">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png" alt="Articuno" class="card-image">
+            </div>
+            <div class="card-caption">
+                <h1 class="poke-name">Articuno</h1>
+                <h3 class="poke-type ice">Ice</h3>
+                <div class="card-stats-container">
+                    <div class="card-stats">
+                        <p class="card-stats-word">HP</p>
+                        <p class="card-stats-number">90</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Attack</p>
+                        <p class="card-stats-number">85</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Defense</p>
+                        <p class="card-stats-number">100</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Attack</p>
+                        <p class="card-stats-number">95</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Defense</p>
+                        <p class="card-stats-number">125</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Speed</p>
+                        <p class="card-stats-number">85</p>
+                    </div>
+                </div>
+                <div class="card_abilities">
+                    <div class="ability">
+                        <h4 class="label">Ability</h4>
+                        <p>Pressure</p>
+                    </div>
+                    <div class="ability">
+                        <h4 class="label">Hidden Ability</h4>
+                        <p>Snow Cloak</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-fairy">
+            <div class="card-image-container">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/036.png" alt="Clefable" class="card-image">
+            </div>
+            <div class="card-caption">
+                <h1 class="poke-name">Clefable</h1>
+                <h3 class="poke-type fairy">Fairy</h3>
+                <div class="card-stats-container">
+                    <div class="card-stats">
+                        <p class="card-stats-word">HP</p>
+                        <p class="card-stats-number">95</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Attack</p>
+                        <p class="card-stats-number">70</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Defense</p>
+                        <p class="card-stats-number">73</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Attack</p>
+                        <p class="card-stats-number">95</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Special Defense</p>
+                        <p class="card-stats-number">90</p>
+                    </div>
+                    <div class="card-stats">
+                        <p class="card-stats-word">Speed</p>
+                        <p class="card-stats-number">60</p>
+                    </div>
+                </div>
+                <div class="card_abilities">
+                    <div class="ability">
+                        <h4 class="label">Ability</h4>
+                        <p>Cute Charm</p>
+                    </div>
+                    <div class="ability">
+                        <h4 class="label">Hidden Ability</h4>
+                        <p>Unaware</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
